@@ -61,74 +61,96 @@ Allocates and returns a “fresh” substring from the string given as argument.
 Allocates and returns a copy of the string given as argument without whitespaces at the beginning or at the end of the string. Will be considered as whitespaces the following characters ’ ’, ’\n’ and ’\t’. If s has no whitespaces at the beginning or at the end, the function returns a copy of s. If the allocation fails the function returns NULL.
 
 ## int ft_atoi(char *str);
+Converts the initial portion of the string pointed to by nptr to int.
 
 ## int ft_isalnum(int i);
+checks for an alphanumeric character.
 
 ## int ft_isalpha(int i);
+checks for an alphabetic character
 
 ## int ft_isascii(int i);
+checks whether c is a 7-bit unsigned char value that fits into the ASCII character set.
 
 ## int ft_isdigit(int i);
+checks for a digit (0 through 9).
 
 ## int ft_isprint(int i);
-
-## int ft_itoalen(int nb);
+checks for any printable character including space.
 
 ## int ft_lstlen(t_list *lst);
+return the node quatity of lst.
 
 ## int ft_memcmp(const void *s1, const void *s2, size_t len);
+compares the first n bytes (each interpreted as unsigned char) of the memory areas s1 and s2.
 
 ## int ft_strcmp(char *s1, char *s2);
+compares the two strings s1 and s2. It returns an integer less than, equal to, or greater than zero if s1 is found, respectively, to be less than, to match, or be greater than s2.
+
+## int ft_strncmp(const char *s1, const char *s2, size_t n);
+is similar, except it only compares the first (at most) n bytes of s1 and s2.
 
 ## int ft_strequ(char const *s1, char const *s2);
 Lexicographical comparison between s1 and s2. If the 2 strings are identical the function returns 1, or 0 otherwise.
 
 ## int ft_strlen(char *str);
 
-## int ft_strncmp(const char *s1, const char *s2, size_t size);
-
 ## int ft_strnequ(char const *s1, char const *s2, size_t n);
 Lexicographical comparison between s1 and s2 up to n characters or until a ’\0’ is reached. If the 2 strings are identical, the function returns 1, or 0 otherwise.
 
 ## int ft_tolower(int i);
+converts the letter i to lower case, if possible.
 
 ## int ft_toupper(int i);
+converts the letter i to upper case, if possible.
 
-
-## int ft_wtablen(int *str);
-
-## size_t ft_strlcat(char *s1, const char *s2, size_t n);
+## size_t ft_strlcat(char *dst, const char *src, size_t dstsize);
+appends a maximum of (dstsize-strlen(dst)-1) characters of src to dst (where dstsize represents the size of the string buffer dst). If the string pointed to by dst contains a nullterminated string that fits into dstsize bytes when strlcat() is called, the string pointed to by dst is a null-terminated string that fits in dstsize bytes (including the terminating null character) when it completes, and the initial character of src overrides the null character at the end of dst. If the string pointed to by dst is longer than dstsize bytes when strlcat() is called, the string pointed to by dst is not changed. The function returns min{dstsize, strlen(dst)}+strlen(src).
 
 ## t_list *ft_lstgoto(t_list *lst, int place);
 
 ## t_list *ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+Iterates a list lst and applies the function f to each link to create a “fresh” list (using malloc(3)) resulting from the successive applications of f. If the allocation fails, the function returns NULL.
 
 ## t_list *ft_lstnew(void const *content, size_t content_size);
+Allocates and returns a “fresh” link. The variables content and content_size of the new link are initialized by copy of the parameters of the function. If the parameter content is nul, the variable content is initialized to NULL and the variable content_size is initialized to 0 even if the parameter content_size isn’t. The variable next is initialized to NULL. If the allocation fails, the function returns NULL.
 
 ## void *ft_memalloc(size_t size);
 Allocates and returns a “fresh” memory area. The memory allocated is initialized to 0. If the allocation fails, the function returns NULL.
 
 ## void *ft_memccpy(void *dst, const void *src, int c, size_t n);
+Copies no more than n bytes from memory area src to memory area dest, stopping when the character c is found.
 
 ## void *ft_memchr(const void *s, int c, size_t n);
+scans the initial n bytes of the memory area pointed to by s for the first instance of c. Both c and the bytes of the memory area pointed to by s are interpreted as unsigned char.
 
 ## void *ft_memcpy(void *dst, const void *src, size_t n);
+Copies no more than n bytes from memory area src to memory area dest.
 
 ## void *ft_memmove(void *dst, const void *src, size_t len);
+copies n bytes from memory area src to memory area dest. The memory areas may overlap: copying takes place as though the bytes in src are first copied into a temporary array that does not overlap src or dest, and the bytes are then copied from the temporary array to dest.
 
 ## void *ft_memset(void *s, int c, size_t n);
+fills the first n bytes of the memory area pointed to by s with the constant byte c.
 
 ## void ft_bzero(void *s, size_t n);
+sets the first n bytes of the area starting at s to zero.
 
 ## void ft_lstadd(t_list **alst, t_list *new);
+Adds the element new at the beginnning of the list.
 
 ## void ft_lstaddend(t_list **alst, t_list *new);
+Adds the element new at the ending of the list.
 
 ## void ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+Takes as a parameter the adress of a pointer to a link and frees the memory of this link and every successors of that link using the functions del and free(3). Finally the pointer to the link that was just freed must be set to NULL (quite similar to the function ft_memdel from the mandatory part).
 
 ## void ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
+Takes as a parameter a link’s pointer address and frees the memory of the link’s content using the function del given as a parameter, then frees the link’s memory using free(3). The memory of next musnt not be freed under any circumstance. Finally, the pointer to the link that was just freed must be set to NULL (quite similar to the function ft_memdel in the mandatory part).
 
 ## void ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+Iterates the list lst and applies the function f to each link.
+
 
 ## void ft_lstreplace(t_list **lst, t_list *new, int place);
 
@@ -155,8 +177,6 @@ Outputs the integer n to the fd file descriptor.
 
 ## void ft_putnbrbase(unsigned int n, char *base);
 Outputs the integer n to the standard output in the chosen base.
-
-## void ft_putoctal(unsigned int n);
 
 ## void ft_putstr(char const *str);
 Outputs the string s to the standard output.
