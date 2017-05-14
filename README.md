@@ -4,12 +4,10 @@
 ## char **ft_strsplit(char const *s, char c);
     Allocates and returns an array of “fresh” strings (all ending with ’\0’, including the array itself) obtained by
     spliting s using the character c as a delimiter. If the allocation fails the function returns NULL. 
+    
     Example: 
         ft_strsplit("*hello*fellow***students*", ’*’) returns the array ["hello", "fellow", "students"].
-        
-        
-        
-
+             
 ## char *ft_itoa(int nb);
     Allocate and returns a “fresh” string ending with ’\0’ representing the integer nb given as argument. Negative
     numbers must be supported. If the allocation fails, the function returns NULL.
@@ -67,6 +65,7 @@
     returns a pointer to the last occurrence of the character c in the string s.
 
 ## char *ft_strrealloc(char *str, int size);
+    Allocates and returns a “fresh” string wich is a copy of str with size more allocated space.
 
 ## char *ft_strstr(const char *big, const char *little);
     locates the first occurrence of the null-terminated string little in the null-terminated string big.
@@ -120,6 +119,7 @@
     Lexicographical comparison between s1 and s2. If the 2 strings are identical the function returns 1, or 0 otherwise.
 
 ## int ft_strlen(char *str);
+    return the number of chars composing str.
 
 ## int ft_strnequ(char const *s1, char const *s2, size_t n);
     Lexicographical comparison between s1 and s2 up to n characters or until a ’\0’ is reached. If the 2 strings are
@@ -140,6 +140,7 @@
     the string pointed to by dst is not changed. The function returns min{dstsize, strlen(dst)}+strlen(src).
 
 ## t_list *ft_lstgoto(t_list *lst, int place);
+    return a pointer to the place position in the lst list.
 
 ## t_list *ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
     Iterates a list lst and applies the function f to each link to create a “fresh” list (using malloc(3)) resulting
@@ -197,6 +198,7 @@
     Iterates the list lst and applies the function f to each link.
 
 ## void ft_lstreplace(t_list **lst, t_list *new, int place);
+    replace the node in the place position of the lst list by the new node.
 
 ## void ft_memdel(void **ap);
     n Takes as a parameter the address of a memory area that needs to be freed, then puts the pointer to NULL.
