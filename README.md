@@ -2,7 +2,7 @@
 
 
 ## char **ft_strsplit(char const *s, char c);
-Allocates and returns an array of “fresh” strings (all ending with ’\0’, including the array itself) obtained by spliting s using the character c as a delimiter. If the allocation fails the function returns NULL. Example: ft_strsplit("*hello*fellow***students*", ’*’) returns the array ["hello", "fellow", "students"].
+    Allocates and returns an array of “fresh” strings (all ending with ’\0’, including the array itself) obtained by spliting s using the character c as a delimiter. If the allocation fails the function returns NULL. Example: ft_strsplit("*hello*fellow***students*", ’*’) returns the array ["hello", "fellow", "students"].
 
 ## char *ft_itoa(int nb);
 Allocate and returns a “fresh” string ending with ’\0’ representing the integer nb given as argument. Negative numbers must be supported. If the allocation fails, the function returns NULL.
